@@ -98,23 +98,9 @@
   .speaker .org { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--cobalt); }
   .speaker .stage { font-size: 0.95rem; color: var(--ink-2); }
 
-  /* form */
+  /* registration */
   .formband { background: var(--paper-2); }
-  form { display: grid; gap: 16px; }
-  .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-  label { display: grid; gap: 6px; font-weight: 600; font-size: 0.95rem; min-width: 0; }
-  label small { font-weight: 400; color: var(--ink-2); }
-  input, textarea, select { width: 100%; font: inherit; font-size: 1rem; padding: 11px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper); color: var(--ink); min-width: 0; }
-  textarea { min-height: 96px; resize: vertical; }
-  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; font-size: 0.95rem; }
-  .check input { width: 18px; height: 18px; margin-top: 4px; flex: none; }
-  .err { color: #B3261E; font-size: 0.9rem; display: none; }
-  .err.show { display: block; }
   .note { font-size: 0.9rem; color: var(--ink-2); }
-  #done { display: none; border: 1px solid var(--ok); border-left-width: 4px; padding: 18px; border-radius: 4px; gap: 12px; }
-  #done.show { display: grid; }
-  #done pre { font-family: var(--mono); font-size: 0.85rem; white-space: pre-wrap; margin: 0; background: var(--paper); padding: 12px; border-radius: 4px; overflow-x: auto; }
-  .copyrow { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
   footer .wrap { padding-block: 32px 48px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 0.9rem; color: var(--ink-2); }
   @media (prefers-reduced-motion: no-preference) { .btn { transition: filter .15s; } }
@@ -143,7 +129,7 @@
       <div><dt>Påmeldingsfrist</dt><dd>17. november</dd></div>
     </dl>
     <div class="cta-row">
-      <a class="btn" href="#pamelding">Meld deg på</a>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdBk3BRb9AkEXtLVZVTqIrKp_lqhU53UNYFP6SLXJJiYf15eQ/viewform" target="_blank" rel="noopener">Meld deg på</a>
       <span class="muted">Begrenset antall plasser. Påmeldingsfrist 17. november.</span>
     </div>
   </div>
@@ -228,42 +214,12 @@
     <h2>Påmelding</h2>
     <p>Seminaret er gratis. Plassene er begrensede, så meld deg på så snart du vet at du kommer, og senest 17. november. Vi sender bekreftelse på e-post.</p>
 
-    <div id="extreg" hidden>
+    <div>
       <div class="cta-row">
-        <a class="btn" id="extlink" href="#" target="_blank" rel="noopener">Meld deg på via skjemaet</a>
+        <a class="btn" id="extlink" href="https://docs.google.com/forms/d/e/1FAIpQLSdBk3BRb9AkEXtLVZVTqIrKp_lqhU53UNYFP6SLXJJiYf15eQ/viewform" target="_blank" rel="noopener">Meld deg på via skjemaet</a>
         <span class="note">Skjemaet åpnes i en ny fane og tar under ett minutt.</span>
       </div>
       <p class="note" style="margin-top:16px; font-size:0.8rem; max-width:62ch"><strong>Personvern.</strong> Når du melder deg på, lagrer Yne AS og Ægis AS navn, e-post, selskap og rolle i en kort periode, slik at vi vet hvem som kommer. Du samtykker samtidig til at vi kan kontakte deg i etterkant for å høre hvordan du opplevde seminaret. Deretter slettes opplysningene. Vil du slettes tidligere, send en e-post til <span id="mailpriv">[e-post for påmelding]</span>.</p>
-    </div>
-
-    <form id="regform" novalidate>
-      <div class="row">
-        <label>Navn <input id="f-navn" name="navn" type="text" autocomplete="name" required></label>
-        <label>E-post <input id="f-epost" name="epost" type="email" autocomplete="email" required></label>
-      </div>
-      <div class="row">
-        <label>Selskap <input id="f-selskap" name="selskap" type="text" autocomplete="organization" required></label>
-        <label>Rolle / tittel <input id="f-rolle" name="rolle" type="text" autocomplete="organization-title"></label>
-      </div>
-      <label>Allergier eller matpreferanser <small>Valgfritt. Vi serverer frokost.</small><input id="f-mat" name="mat" type="text"></label>
-      <label>Har du et spørsmål du vil at innlederne skal ta opp? <small>Valgfritt</small><textarea id="f-sporsmal" name="sporsmal"></textarea></label>
-      <label class="check"><input id="f-samtykke" name="samtykke" type="checkbox" required><span>Jeg samtykker til at Yne AS og Ægis AS lagrer opplysningene over i en kort periode for å gjennomføre seminaret, og til å bli kontaktet i etterkant for tilbakemelding.</span></label>
-      <p class="err" id="err">Fyll ut navn, e-post og selskap, og kryss av for samtykke.</p>
-      <div class="cta-row">
-        <button class="btn" type="submit" id="submit">Meld meg på</button>
-        <span class="note">Du får en bekreftelse innen én virkedag.</span>
-      </div>
-    </form>
-
-    <div id="done" aria-live="polite">
-      <h3>Takk, påmeldingen din er klar til sending</h3>
-      <p>Send teksten under til <strong id="mailshow">[e-post for påmelding]</strong>, eller bruk knappen. Vi bekrefter på e-post.</p>
-      <pre id="summary"></pre>
-      <div class="copyrow">
-        <button class="ghost" type="button" id="copy">Kopier teksten</button>
-        <a class="ghost" id="maillink" href="#" style="text-decoration:none">Åpne i e-postprogrammet</a>
-        <span class="note" id="copied"></span>
-      </div>
     </div>
   </div>
 </section>
@@ -277,69 +233,10 @@
 </footer>
 
 <script>
-  // Set the registration address once, here. On Yne's own site, replace the submit handler
-  // with a real form endpoint (your CMS, Formspree, HubSpot etc.) and this fallback becomes unnecessary.
+  // Set the contact address once, here. It is shown in the privacy text and the footer.
   var REG_EMAIL = "[e-post for påmelding]";
-  var EVENT_NAME = "Erfaringer fra virkeligheten: AI-agenter i daglig drift og utvikling";
-  // Paste the Google Form (or Microsoft Forms) link here. When set, the button below replaces the inline form.
-  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdBk3BRb9AkEXtLVZVTqIrKp_lqhU53UNYFP6SLXJJiYf15eQ/viewform";
   document.getElementById("mailpriv").textContent = REG_EMAIL;
-
-  document.getElementById("mailshow").textContent = REG_EMAIL;
   document.getElementById("mailfoot").textContent = REG_EMAIL;
-
-  if (FORM_URL) {
-    document.getElementById("extlink").href = FORM_URL;
-    document.getElementById("extreg").hidden = false;
-    document.getElementById("regform").hidden = true;
-    document.querySelector(".cta-row .btn").href = FORM_URL;
-  }
-
-  var form = document.getElementById("regform");
-  var err = document.getElementById("err");
-  var done = document.getElementById("done");
-
-  function val(id) { return document.getElementById(id).value.trim(); }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var navn = val("f-navn"), epost = val("f-epost"), selskap = val("f-selskap");
-    var ok = navn && selskap && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(epost) && document.getElementById("f-samtykke").checked;
-    err.classList.toggle("show", !ok);
-    if (!ok) return;
-
-    var lines = [
-      "Påmelding: " + EVENT_NAME,
-      "",
-      "Navn: " + navn,
-      "E-post: " + epost,
-      "Selskap: " + selskap,
-      "Rolle: " + (val("f-rolle") || "-"),
-      "Mat/allergier: " + (val("f-mat") || "-"),
-      "Spørsmål til innlederne: " + (val("f-sporsmal") || "-"),
-      "",
-      "Samtykke til lagring av opplysninger for seminaret: ja"
-    ];
-    var text = lines.join("\n");
-    document.getElementById("summary").textContent = text;
-    var mail = document.getElementById("maillink");
-    mail.href = "mailto:" + encodeURIComponent(REG_EMAIL) + "?subject=" + encodeURIComponent("Påmelding frokostseminar: " + navn + ", " + selskap) + "&body=" + encodeURIComponent(text);
-    done.classList.add("show");
-    done.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-
-  document.getElementById("copy").addEventListener("click", function () {
-    var text = document.getElementById("summary").textContent;
-    var note = document.getElementById("copied");
-    function fallback() {
-      var r = document.createRange(); r.selectNodeContents(document.getElementById("summary"));
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      note.textContent = "Teksten er markert. Trykk Ctrl+C / Cmd+C.";
-    }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { note.textContent = "Kopiert."; }, fallback);
-    } else { fallback(); }
-  });
 </script>
 </body>
 </html>

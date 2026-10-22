@@ -15,7 +15,8 @@ Alt som endres ofte ligger øverst i `<script>`-blokken nederst i `index.html`:
 | Variabel    | Hva den styrer                                                                 |
 |-------------|--------------------------------------------------------------------------------|
 | `REG_EMAIL` | E-postadressen som vises for spørsmål om seminaret og for sletting av opplysninger |
-| `FORM_URL`  | Lenken til Google-skjemaet. Når den er satt, åpner alle «Meld deg på»-knapper skjemaet, og det innebygde skjemaet skjules |
+
+Lenken til Google-skjemaet står direkte i de to «Meld deg på»-knappene i HTML-en.
 
 Dato, sted og frist står i faktastripen øverst på siden. Program og innledere står i egne seksjoner i HTML-en.
 
