@@ -1,4 +1,4 @@
-# Invitasjon: frokostseminar 19. november 2026
+# Invitasjon: frokostseminar 18. november 2026
 
 **Erfaringer fra virkeligheten: AI-agenter i daglig drift og utvikling**
 
