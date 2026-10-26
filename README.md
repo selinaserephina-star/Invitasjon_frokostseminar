@@ -7,6 +7,9 @@ Yne × Ægis, Akersgata 32, Oslo. 08.30–10.30. Påmeldingsfrist 17. november.
 ## Innhold
 
 - `index.html` – invitasjonssiden med program, innledere og påmelding. Selvstendig fil uten avhengigheter utover Google Fonts.
+- `invitasjon-frokostseminar-18-november.pdf` – samme invitasjon som PDF (A4, tre sider), til e-post og utskrift.
+
+PDF-en lages fra `index.html` med Chrome: `chrome --headless=new --no-pdf-header-footer --print-to-pdf=invitasjon-frokostseminar-18-november.pdf index.html`. Lag den på nytt etter endringer i siden.
 
 ## Slik oppdaterer du siden
 

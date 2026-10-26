@@ -104,6 +104,33 @@
 
   footer .wrap { padding-block: 32px 48px; border-top: 1px solid var(--line); display: grid; gap: 6px; font-size: 0.9rem; color: var(--ink-2); }
   @media (prefers-reduced-motion: no-preference) { .btn { transition: filter .15s; } }
+
+  /* print / PDF */
+  @page { size: A4; margin: 14mm 16mm; }
+  @media print {
+    :root { --paper: #FFFFFF; --paper-2: #F1F0EC; --ink: #171A1F; --ink-2: #4C525B; --line: #CFCCC4; --cobalt: #1D3FBF; --cobalt-ink: #FFFFFF; color-scheme: light; }
+    body { font-size: 11pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .band { padding-left: 0; padding-right: 0; }
+    .wrap { max-width: none; }
+    .hero .wrap { padding-block: 22pt 20pt; gap: 14pt; }
+    .facts { grid-template-columns: repeat(5, 1fr); }
+    .facts div { padding: 8pt 0; padding-right: 8pt; }
+    .facts dd { font-size: 10pt; }
+    .hero h1 { font-size: 24pt; }
+    .hook { font-size: 14pt; }
+    .lede { font-size: 11pt; }
+    section .wrap { padding-block: 18pt; gap: 12pt; }
+    .slot { padding: 10pt 0; break-inside: avoid; }
+    .speaker, .cols > div { break-inside: avoid; }
+    h2 { break-after: avoid; font-size: 15pt; }
+    .programme { break-before: auto; }
+    .btn { padding: 8pt 12pt; font-size: 10pt; }
+    .btn[href^="http"]::after { content: attr(href); display: block; font-weight: 400; font-size: 7.5pt; margin-top: 3pt; opacity: .85; word-break: break-all; }
+    .cta-row .note, .cta-row .muted { display: none; }
+    .formband { background: var(--paper-2); }
+    footer .wrap { padding-block: 14pt 0; }
+    a { color: inherit; text-decoration: none; }
+  }
 </style>
 </head>
 <body>
